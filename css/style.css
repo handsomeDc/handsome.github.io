@@ -1,0 +1,79 @@
+/*主页卡片透明明亮模式下*/
+[data-theme=light] {
+    --card-bg: rgba(255, 255, 255, .85) !important;
+}
+
+/*主页卡片透明黑暗模式下*/
+[data-theme=dark] {
+    --card-bg: rgba(20, 24, 31, .7) !important;
+}
+
+
+
+/*主页文章图片透明*/
+#recent-posts>.recent-post-item .post_cover img.post_bg {
+    opacity: 0.8;
+}
+
+/*鼠标触碰恢复原图*/
+#recent-posts>.recent-post-item .post_cover img.post_bg:hover {
+    opacity: 1.0;
+}
+
+/*添加去灰遮罩*/
+#recent-posts>.recent-post-item .post_cover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+
+/*最新文章透明*/
+#aside-content .aside-list>.aside-list-item .thumbnail>img {
+    opacity: 0.85;
+}
+
+/*鼠标触碰恢复原图*/
+#aside-content .aside-list>.aside-list-item .thumbnail>img:hover {
+    opacity: 1.0;
+}
+
+
+
+/*头像透明*/
+#aside-content>.card-widget .is-center .avatar-img img {
+    opacity: 0.9;
+}
+
+/*鼠标触碰恢复原图*/
+#aside-content>.card-widget .is-center .avatar-img img:hover {
+    opacity: 1.0
+}
+
+/*aplayer收入侧边栏*/
+.aplayer.aplayer-narrow .aplayer-body {
+    left: -66px !important
+}
+
+.aplayer.aplayer-narrow .aplayer-body:hover {
+    left: 0px !important
+}
+
+
+
+#post>#post-info {
+    text-align: center;
+}
+
+.article-sort-title {
+    text-align: center;
+}
+
+
+/*
+移动右下角按钮
+#rightside {
+    position: fixed;
+    bottom: 200px;
+    right: -38px;
+}
+*/

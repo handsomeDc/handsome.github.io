@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>代码演示</title>
+      <link href="/2022/07/16/%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA/%E6%BC%94%E7%A4%BA/"/>
+      <url>/2022/07/16/%E4%BB%A3%E7%A0%81%E6%BC%94%E7%A4%BA/%E6%BC%94%E7%A4%BA/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;hello world hello world hello world hello world hello world hello world hello world hello world&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 摘抄 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>记一次水卡破解</title>
+      <link href="/2022/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B0%B4%E5%8D%A1%E7%A0%B4%E8%A7%A3/%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B/"/>
+      <url>/2022/07/16/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B0%B4%E5%8D%A1%E7%A0%B4%E8%A7%A3/%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><img class="inline-img" src="/images/%E5%9B%BE%E7%89%871.png" style="height:250px"/><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>水卡为整张饭卡的一部分，扇区12为饮用水数据储存处， 修改对应数据即可改变饮用水金额</p><p>学校饭卡以16进制存储数据，所以卡中ABCDEF为16进制数而并非代表字母</p><h2 id=""><a href="#" class="headerlink" title=""></a><mark class="hl-label orange">数据读取密码</mark> </h2><p>12扇区读取密码为块3（即上图第4行）</p><p>（密码A）前6字节与（密码B）后6字节（即前12位数字与后12位数字）</p><p>这里A与B密码一致，使用相同密码    （ CD20EF07AB08 ）   即可</p><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><mark class="hl-label orange">金额算法</mark> </h2><p>块1（第2行）块2（第3行）的<br>第1第2字节（前4位数字）与第9第10字节（第17至20位数）为金额位，两处金额位需相同<br>第5第6字节（第9至12位数）为校验位</p><p>在此卡中，一个字节等于2个数字，数据为16进制数，金额数保留两位小数<br>以此为前提，你想改的金额在卡中输入时就要先添加两个0并换算为16进制，然后把它看成两个字节，再将这两个字节顺序颠倒，即得到卡中金额数</p><p>以5R为例，5R在饮水机上显示为5.00  你在进行进制换算时就要先添加两个0，用500来进行16进制换算，换算结果为1F4，（注意若换算后的金额为3位数，需在第一位前加一个0填补，如01F4）然后顺序颠倒变为F401输入</p><h2 id="-2"><a href="#-2" class="headerlink" title=""></a><mark class="hl-label green">校验位的计算</mark> </h2><p>想改金额（C）÷255≈（A）<br>255×（A）+（A）- 1 =（B）<br>（B）-（C）= 校验前2位<br>255 - [（A）- 1 ] = 校验后2位</p><p>校验位无需颠倒顺序<br>以5R为例：<br>500 ÷ 255 ≈ 2<br>255 × 2 + 2 - 1 = 511<br>511 - 500 = 11 换算为16进制即0B<br>255 - ( 2 - 1 ) = 254换算为16进制即FE</p><h2 id="-3"><a href="#-3" class="headerlink" title=""></a><mark class="hl-label green">注意：</mark> </h2><p>（1）输入的数据如无错误，在mct中会自动高亮显示（即块2或块3显示为黄色）</p><p>（2）在读取数据时，一般块1与块2数据相同，如出现数据不一致的情况，以块2的数据为准。也因此，在改动数据时只需改动块2（第三行）即可</p><h2 id="附："><a href="#附：" class="headerlink" title="附："></a>附：</h2><p>整卡密钥：<br>61196250ffff<br>61196350ffff<br>61196450ffff<br>61196550ffff<br>61196650ffff<br>61196750ffff<br>61196850ffff<br>61196950ffff<br>61196a50ffff<br>61196b50ffff<br>61196c50ffff<br>cd20ef07ab08<br>61196f50ffff<br>61197050ffff</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hello world</title>
+      <link href="/2021/12/19/hello-world/"/>
+      <url>/2021/12/19/hello-world/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>你好世界</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 📁Hexo </tag>
+            
+            <tag> 尝试 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
